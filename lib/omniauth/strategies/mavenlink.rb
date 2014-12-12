@@ -12,6 +12,10 @@ module OmniAuth
   			token_url: 'https://app.mavenlink.com/oauth/token'
   		}
 
+      option :token_params, {
+        grant_type: 'authorization_code',
+      }
+
   		# def request_phase
     #     	super
 	   #  end
@@ -43,7 +47,7 @@ module OmniAuth
 
 
 
-      alias :oauth2_access_token :access_token
+      # alias :oauth2_access_token :access_token
 
       # def access_token
       #   ::OAuth2::AccessToken.new(client, oauth2_access_token.token, {
@@ -54,9 +58,9 @@ module OmniAuth
       #   })
       # end
 
-      def access_token
-        ::OAuth2::AccessToken.new(client, oauth2_access_token.token)
-      end      
+      # def access_token
+      #   ::OAuth2::AccessToken.new(client, oauth2_access_token.token)
+      # end      
 
     	def raw_info
     		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
