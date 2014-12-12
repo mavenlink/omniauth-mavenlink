@@ -20,7 +20,9 @@ module OmniAuth
 		              params[v.to_sym] = request.params[v]
 		            end
 	        	end
-	        end
+	      end
+
+        session['omniauth.state'] = params[:state] if params['state']
 	    end
 
 	    uid { raw_info['id'].to_s }
@@ -32,7 +34,9 @@ module OmniAuth
     	end
 
     	extra do {
-        	'raw_info' => raw_info
+        hash = {}
+        hash[:id_token] = access_token['id_token']
+        hash[:raw_info] = raw_info unless skip_info?
     	  }
     	end
 
