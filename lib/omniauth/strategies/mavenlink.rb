@@ -5,7 +5,7 @@ module OmniAuth
   	class Mavenlink < OmniAuth::Strategies::OAuth2
   		option :client_options, {
   			site: 'https://app.mavenlink.com',
-  			authorize_url: 'https://app.mavenlink.com',
+  			authorize_url: 'https://app.mavenlink.com/oauth/authorize',
   			token_url: 'https://app.mavenlink.com/oauth/token'
   		}
 
