@@ -4,7 +4,7 @@ module OmniAuth
   module Strategies
   	class Mavenlink < OmniAuth::Strategies::OAuth2
   		option :client_options, {
-  			site: 'https://api.mavenlink.com/api/v1',
+  			site: 'https://app.mavenlink.com',
   			authorize_url: 'https://app.mavenlink.com/oauth/authorize',
   			token_url: 'https://app.mavenlink.com/oauth/token'
   		}
@@ -37,7 +37,7 @@ module OmniAuth
     	end
 
     	def raw_info
-    		@raw_info ||= access_token.get('/me.json').parsed
+    		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
     	end
 
   	end
