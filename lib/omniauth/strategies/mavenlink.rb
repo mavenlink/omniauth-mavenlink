@@ -16,10 +16,10 @@ module OmniAuth
         grant_type: 'authorization_code',
       }
 
-	    uid { raw_info['id'].to_s }
+	    uid { user_id.to_s }
 
 	    info do {
-        	:name => raw_info['users'][user_id]['full_name'],
+        	:name => raw_info['users']['full_name'],
         	:email => raw_info['users']['email_address'],
           :plan_type => raw_info['users']['plan_type'],
           :account_permission => raw_info['users']['account_permission']
