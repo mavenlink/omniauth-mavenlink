@@ -16,7 +16,7 @@ module OmniAuth
         grant_type: 'authorization_code',
       }
 
-	    uid { raw_info['results']['id'].to_s }
+	    uid { raw_info['id'].to_s }
 
 	    info do {
         	:name => raw_info['users']['5207615']['full_name'],
@@ -33,7 +33,7 @@ module OmniAuth
     	end
 
     	def raw_info
-    		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json')
+    		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
     	end
 
       # def user_id
