@@ -19,8 +19,10 @@ module OmniAuth
 	    uid { raw_info['id'].to_s }
 
 	    info do {
-        	:name => raw_info['users']['full_name'],
-        	:email => raw_info['users']['email_address']
+        	:name => raw_info['users'][user_id]['full_name'],
+        	:email => raw_info['users']['email_address'],
+          :plan_type => raw_info['users']['plan_type'],
+          :account_permission => raw_info['users']['account_permission']
           # name: raw_info
         }
     	end
@@ -33,6 +35,10 @@ module OmniAuth
     	def raw_info
     		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
     	end
+
+      def user_id
+        @user_id = raw_info['results']['id']
+      end
 
   	end
   end
