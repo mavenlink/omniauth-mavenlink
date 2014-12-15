@@ -16,7 +16,7 @@ module OmniAuth
         grant_type: 'authorization_code',
       }
 
-	    uid { raw_info['results']['id'].to_s }
+	    uid { raw_info['results']['id'] }
 
 	    info do {
         	:name => raw_info['users']['5207615']['full_name'],
