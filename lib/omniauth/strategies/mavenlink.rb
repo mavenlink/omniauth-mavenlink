@@ -37,7 +37,7 @@ module OmniAuth
     	end
 
       def user_id
-        @user_id = raw_info['results']['id']
+        @user_id = raw_info['results']['id'].to_s
       end
 
   	end
