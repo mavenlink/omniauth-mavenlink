@@ -17,14 +17,15 @@ module OmniAuth
         grant_type: 'authorization_code',
       }
 
-	    uid { raw_info['id'].to_s }
+	    uid { parsed_info['id'].to_s }
 
 	    info do {
-        	:name => raw_info['users']['5207615']['full_name'],
+        	:name => parsed_info['full_name'],
         	:email => parsed_info['email_address'],
-          :plan_type => raw_info['users']['plan_type'],
-          :account_permission => raw_info['users']['account_permission']
-          # name: raw_info
+          :headline => parsed_info['headline'],
+          :account_id => parsed_info['account_id'].to_s,
+          :plan_type => parsed_info['plan_type'],
+          :account_permission => parsed_info['account_permission']
         }
     	end
 
@@ -35,8 +36,6 @@ module OmniAuth
 
     	def raw_info
     		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
-        # parse = JSON.parse(access_token.get('https://api.mavenlink.com/api/v1/users/me.json'))
-        # @raw_info ||= parse['users'].values.first
     	end
 
       def parsed_info
