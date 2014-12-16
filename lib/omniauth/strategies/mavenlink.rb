@@ -21,7 +21,7 @@ module OmniAuth
 
 	    info do {
         	:name => raw_info['users']['5207615']['full_name'],
-        	:email => raw_info['users'].first { |user| do user['email_address'] },
+        	:email => raw_info['email_address'],
           :plan_type => raw_info['users']['plan_type'],
           :account_permission => raw_info['users']['account_permission']
           # name: raw_info
