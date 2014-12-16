@@ -25,7 +25,8 @@ module OmniAuth
           :headline => parsed_info['headline'],
           :account_id => parsed_info['account_id'].to_s,
           :plan_type => parsed_info['plan_type'],
-          :account_permission => parsed_info['account_permission']
+          :account_permission => parsed_info['account_permission'],
+          :photo_path => parsed_info['photo_path']
         }
     	end
 
@@ -41,10 +42,6 @@ module OmniAuth
       def parsed_info
         @parsed_info = raw_info['users'].values.first
       end
-
-      # def user_id
-      #   @user_id = raw_info['results']['id']
-      # end
 
   	end
   end
