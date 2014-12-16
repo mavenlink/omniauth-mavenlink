@@ -34,9 +34,9 @@ module OmniAuth
     	end
 
     	def raw_info
-    		# @raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed
-        parse = JSON.parse(access_token.get('https://api.mavenlink.com/api/v1/users/me.json'))
-        @raw_info ||= parse['users'].values.first
+    		@raw_info ||= access_token.get('https://api.mavenlink.com/api/v1/users/me.json').parsed['users'].values.first
+        # parse = JSON.parse(access_token.get('https://api.mavenlink.com/api/v1/users/me.json'))
+        # @raw_info ||= parse['users'].values.first
     	end
 
       # def user_id
