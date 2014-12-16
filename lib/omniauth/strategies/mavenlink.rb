@@ -41,6 +41,7 @@ module OmniAuth
 
       def parsed_info
         @parsed_info = raw_info['users'].values.first
+      end
 
       # def user_id
       #   @user_id = raw_info['results']['id']
