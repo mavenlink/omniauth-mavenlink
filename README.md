@@ -8,12 +8,12 @@ For more information about the Mavenlink API: http://developer.mavenlink.com/
 
 If you are using Rails, add the gem to your `Gemfile`:
   
-  gem 'omniauth-mavenlink'
+    gem 'omniauth-mavenlink'
 
 Once installed, add the following to `config/initializers/omniauth.rb`:
 
-  use OmniAuth::Builder do
-    provider :mavenlink, ENV['MAVENLINK_KEY'], ENV['MAVENLINK_SECRET']
-  end
+    use OmniAuth::Builder do
+      provider :mavenlink, ENV['MAVENLINK_KEY'], ENV['MAVENLINK_SECRET']
+    end
 
 
