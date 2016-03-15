@@ -3,7 +3,6 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
   	class Mavenlink < OmniAuth::Strategies::OAuth2
-  		
       option :name, 'mavenlink'
 
       option :client_options, {
@@ -41,8 +40,6 @@ module OmniAuth
       def parsed_info
         @parsed_info = raw_info['users'].values.first
       end
-
   	end
   end
 end
-
