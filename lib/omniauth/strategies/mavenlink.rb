@@ -5,15 +5,11 @@ module OmniAuth
     class Mavenlink < OmniAuth::Strategies::OAuth2
       option :name, 'mavenlink'
 
-      option :client_options, {
-                                site: 'https://app.mavenlink.com',
-                                authorize_url: 'https://app.mavenlink.com/oauth/authorize?response_type=code',
-                                token_url: 'https://app.mavenlink.com/oauth/token'
-                              }
+      option :client_options, :site => 'https://app.mavenlink.com',
+                              :authorize_url => 'https://app.mavenlink.com/oauth/authorize?response_type=code',
+                              :token_url => 'https://app.mavenlink.com/oauth/token'
 
-      option :token_params, {
-                              grant_type: 'authorization_code',
-                            }
+      option :token_params, :grant_type => 'authorization_code'
 
       uid { parsed_info['id'].to_s }
 
